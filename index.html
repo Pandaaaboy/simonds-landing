@@ -257,6 +257,91 @@ footer{background:var(--dark);padding:48px 80px}
 .js .rv.on{opacity:1;transform:translateY(0)}
 .js .rv2{opacity:0;transform:translateY(26px);transition:opacity .7s ease .12s,transform .7s ease .12s}
 .js .rv2.on{opacity:1;transform:translateY(0)}
+
+/* =============================================
+   MOBILE OPTIMISATIONS
+   ============================================= */
+
+/* Tablet wide (≤900px): relax section horizontal padding */
+@media(max-width:900px){
+  .sec{padding:90px 48px}
+  .hero-body{padding:0 48px 68px}
+  footer{padding:40px 48px}
+  .tag-box{bottom:0;left:0}
+}
+
+/* Mid-tablet (≤768px): continue tightening */
+@media(max-width:768px){
+  .hero-body{padding:0 36px 60px}
+  .fcta img{height:400px}
+  .tcard{padding:32px 26px}
+  .tv-body{padding:56px 32px}
+  .sec{padding:80px 36px}
+}
+
+/* Mobile (≤640px): supplements existing rules */
+@media(max-width:640px){
+  /* Hide desktop nav CTA — mob-stick handles it */
+  .nav-btn{display:none}
+
+  /* Pad body so mob-stick doesn't cover last content */
+  body{padding-bottom:56px}
+
+  /* Stats: reduce oversized numbers in 2-col grid */
+  .stat-c strong{font-size:34px}
+  .stat-c{padding:24px 8px}
+  .stat-c span{letter-spacing:1.2px}
+
+  /* Intro: shorten image, reposition tag-box safely inside bounds */
+  .intro-vis img{height:260px}
+  .tag-box{position:absolute;bottom:0;left:0;padding:14px 18px}
+  .tag-box strong{font-size:26px;margin-bottom:0}
+
+  /* Projects: explicit card height in 1-col */
+  .proj-head{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:32px}
+  .proj-head p{max-width:100%}
+  .pc{min-height:240px}
+  .pc img{min-height:240px}
+
+  /* Form card: reduce padding for mobile viewport */
+  .f-card{padding:28px 20px}
+
+  /* GHL iframe: explicit min-height so it doesn't collapse */
+  #inline-MjCdphCb0c5LNm5CiaYN{min-height:700px}
+
+  /* Testimonials */
+  .tcard{padding:28px 20px}
+  .tquote{font-size:16px;line-height:1.7}
+
+  /* Process */
+  .ps-n{font-size:40px;margin-bottom:10px}
+  .proc-steps{gap:32px}
+
+  /* Trevor */
+  .tv-ph{min-height:260px}
+  .tv-body{padding:44px 20px}
+  .tv-facts{gap:18px}
+  .tvf strong{font-size:26px}
+
+  /* Final CTA */
+  .fcta img{height:320px}
+  .fcta-body h2{font-size:clamp(28px,9vw,46px)}
+  .fcta-body p{font-size:15px;margin-bottom:24px}
+  .fcta-body{padding:28px 24px}
+
+  /* Footer: center everything */
+  .foot-in{flex-direction:column;align-items:center;text-align:center}
+  .foot-links{justify-content:center}
+}
+
+/* Very small screens (≤380px) */
+@media(max-width:380px){
+  .stat-c strong{font-size:28px}
+  .stat-c span{font-size:9px;letter-spacing:.8px}
+  .display{font-size:clamp(28px,8vw,38px)}
+  .f-card{padding:22px 14px}
+  .nav-r{display:none}
+}
 </style>
 </head>
 <body>
