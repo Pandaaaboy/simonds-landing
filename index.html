@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Design Assessment — Simonds Homes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#E21836;
+  --red-d:#b8102a;
+  --dark:#0c0c0c;
+  --dark2:#141414;
+  --sand:#f5f1ec;
+  --warm:#ede8e1;
+  --off:#fafaf8;
+  --text:#111111;
+  --muted:#6b6b6b;
+  --border:#e2e2e2;
+  --white:#ffffff;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:70px;padding:0 56px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,box-shadow .35s}
+nav.scrolled{background:rgba(255,255,255,.97);box-shadow:0 1px 0 rgba(0,0,0,.07);backdrop-filter:blur(10px)}
+.logo-svg{height:34px;display:block}
+.nav-r{display:flex;align-items:center;gap:24px}
+.nav-tel{font-size:13px;font-weight:500;color:rgba(255,255,255,.8);text-decoration:none;letter-spacing:.2px;transition:color .2s}
+nav.scrolled .nav-tel{color:var(--muted)}
+.nav-tel:hover{color:var(--red)}
+.nav-btn{background:var(--red);color:#fff;padding:11px 24px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-btn:hover{background:var(--red-d)}
+@media(max-width:640px){nav{padding:0 20px}.nav-tel{display:none}}
+
+/* HERO */
+.hero{position:relative;height:100svh;min-height:580px;max-height:860px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;transform:scale(1.04);transition:transform 7s ease-out}
+.hero-img.pan{transform:scale(1)}
+/* Strong base dark layer + directional gradient for legibility */
+.hero-grad{position:absolute;inset:0;background:rgba(0,0,0,.38)}
+.hero-grad::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.1) 35%,rgba(0,0,0,.75) 100%)}
+.hero-body{position:relative;z-index:2;padding:0 80px 72px;max-width:1280px;width:100%}
+.pill{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:16px;white-space:nowrap}
+.pill-dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}
+.hero-h{font-family:var(--serif);font-size:clamp(42px,6vw,84px);font-weight:400;line-height:1.06;color:#fff;letter-spacing:-.5px;margin-bottom:20px;max-width:780px;text-shadow:0 2px 24px rgba(0,0,0,.3)}
+.hero-h em{font-style:italic;color:rgba(255,255,255,.88)}
+.hero-p{font-size:16px;font-weight:300;color:rgba(255,255,255,.8);line-height:1.8;max-width:480px;margin-bottom:36px;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.hero-acts{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-red{background:var(--red);color:#fff;padding:15px 36px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border:2px solid var(--red);display:inline-block;transition:background .2s,transform .15s}
+.btn-red:hover{background:var(--red-d);border-color:var(--red-d);transform:translateY(-1px)}
+.btn-wire{color:rgba(255,255,255,.85);padding:15px 30px;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.5px;text-decoration:none;border:1.5px solid rgba(255,255,255,.45);display:inline-block;transition:border-color .2s,color .2s}
+.btn-wire:hover{border-color:#fff;color:#fff}
+.hero-scroll-line{position:absolute;right:72px;bottom:28px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(255,255,255,.45);font-size:10px;letter-spacing:2.5px;text-transform:uppercase;animation:bob 2.4s ease-in-out infinite}
+.hero-scroll-line span{writing-mode:vertical-rl}
+.hero-scroll-line::after{content:"";width:1px;height:36px;background:rgba(255,255,255,.3)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+@media(max-width:640px){
+  .hero-body{padding:0 24px 52px}
+  .hero-scroll-line{display:none}
+  .pill{font-size:10px;letter-spacing:1.5px;white-space:normal;line-height:1.5}
+  .hero-p{font-size:15px}
+  .hero-acts{flex-direction:column;align-items:flex-start;gap:10px}
+  .btn-red,.btn-wire{width:100%;text-align:center;padding:14px 24px}
+}
+
+/* STATS */
+.stats{background:var(--dark);display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-c{padding:38px 0;text-align:center;border-right:1px solid rgba(255,255,255,.06)}
+.stat-c:last-child{border:none}
+.stat-c strong{display:block;font-family:var(--serif);font-size:44px;font-weight:400;color:#fff;line-height:1;margin-bottom:7px}
+.stat-c span{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,.38)}
+@media(max-width:640px){.stats{grid-template-columns:1fr 1fr}}
+
+/* SECTIONS */
+.sec{padding:110px 80px}
+.sec.off{background:var(--off)}
+.sec.sand{background:var(--sand)}
+.sec.warm{background:var(--warm)}
+.sec.dark{background:var(--dark)}
+.inner{max-width:1180px;margin:0 auto}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:var(--red)}
+.eyebrow.w{color:rgba(255,255,255,.5)}
+.eyebrow.w::before{background:var(--red)}
+.eyebrow.center{justify-content:center}
+.display{font-family:var(--serif);font-size:clamp(34px,4vw,54px);font-weight:400;line-height:1.1;letter-spacing:-.3px}
+.display em{font-style:italic}
+.body-lg{font-size:17px;font-weight:300;color:var(--muted);line-height:1.85}
+@media(max-width:640px){.sec{padding:72px 24px}}
+
+/* INTRO SPLIT */
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:900px){.intro-grid{grid-template-columns:1fr;gap:48px}}
+.intro-txt p{font-size:16px;font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:14px}
+.link-arr{color:var(--red);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:8px;margin-top:16px;transition:gap .2s}
+.link-arr::after{content:"→"}
+.link-arr:hover{gap:14px}
+.intro-vis{position:relative}
+.intro-vis img{width:100%;height:560px;object-fit:cover;display:block}
+.tag-box{position:absolute;bottom:-18px;left:-18px;background:var(--red);color:#fff;padding:22px 26px;font-family:var(--serif);font-size:13px;line-height:1.5}
+.tag-box strong{display:block;font-size:36px;font-weight:400;margin-bottom:2px}
+
+/* PROJECT GRID */
+.proj-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;gap:40px}
+.proj-head p{max-width:320px;font-size:15px;color:var(--muted);line-height:1.75}
+.pg{display:grid;grid-template-columns:1.45fr 1fr 1fr;grid-template-rows:300px 300px;gap:3px}
+@media(max-width:768px){.pg{grid-template-columns:1fr;grid-template-rows:auto}}
+.pc{position:relative;overflow:hidden;background:#ccc}
+.pc.big{grid-row:span 2}
+.pc img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .65s cubic-bezier(.25,.46,.45,.94)}
+.pc:hover img{transform:scale(1.06)}
+.pc-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78) 0%,rgba(0,0,0,.05) 55%);transition:opacity .3s}
+.pc-body{position:absolute;bottom:0;left:0;right:0;padding:24px 26px 22px;transform:translateY(3px);transition:transform .3s}
+.pc:hover .pc-body{transform:translateY(0)}
+.type-tag{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;margin-bottom:8px}
+.pc-body h3{font-family:var(--serif);font-size:21px;font-weight:400;color:#fff;margin-bottom:3px}
+.pc-body .loc{font-size:12px;color:rgba(255,255,255,.6)}
+.pc-stats{display:flex;gap:16px;margin-top:10px;opacity:0;transition:opacity .3s .05s}
+.pc:hover .pc-stats{opacity:1}
+.pc-stats span{font-size:11px;color:rgba(255,255,255,.72);border-left:2px solid var(--red);padding-left:9px;line-height:1.4}
+
+/* BEFORE AFTER */
+.ba-wrap{position:relative;height:580px;overflow:hidden;cursor:col-resize;user-select:none}
+@media(max-width:640px){.ba-wrap{height:360px}}
+.ba-after,.ba-before{position:absolute;inset:0;width:100%;height:100%}
+.ba-after img,.ba-before img{width:100%;height:100%;object-fit:cover;display:block}
+.ba-before{clip-path:inset(0 50% 0 0)}
+.ba-lbl{position:absolute;top:20px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 13px}
+.ba-lbl.b{left:20px;background:rgba(0,0,0,.55);color:#fff}
+.ba-lbl.a{right:20px;background:var(--red);color:#fff}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:3px;background:#fff;cursor:col-resize}
+.ba-handle::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:#fff;box-shadow:0 2px 18px rgba(0,0,0,.22)}
+.ba-arrow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--red);font-size:10px;font-weight:700;white-space:nowrap;pointer-events:none}
+.ba-caps{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:3px}
+.ba-cap{background:var(--sand);padding:22px 26px;display:flex;align-items:center;gap:14px}
+.ba-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.ba-cap h4{font-size:14px;font-weight:600;margin-bottom:3px}
+.ba-cap p{font-size:12.5px;color:var(--muted)}
+
+/* OFFER */
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start}
+@media(max-width:900px){.offer-grid{grid-template-columns:1fr;gap:56px}}
+.offer-txt .display{color:#fff;margin-bottom:20px}
+.offer-txt .body-lg{color:rgba(255,255,255,.5);margin-bottom:44px}
+.offer-list{display:flex;flex-direction:column}
+.oi{display:flex;gap:20px;align-items:flex-start;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.oi:first-child{border-top:1px solid rgba(255,255,255,.06)}
+.oi-n{font-family:var(--serif);font-size:30px;font-weight:400;color:var(--red);line-height:1;flex-shrink:0;width:34px;margin-top:2px}
+.oi h4{font-size:15px;font-weight:600;color:#fff;margin-bottom:5px}
+.oi p{font-size:13.5px;color:rgba(255,255,255,.42);line-height:1.65}
+/* FORM CARD */
+.f-card{background:#fff;padding:44px 40px}
+.f-card h3{font-family:var(--serif);font-size:26px;font-weight:500;margin-bottom:5px}
+.f-card .fsub{font-size:13.5px;color:var(--muted);margin-bottom:26px}
+.ghl-drop{border:1.5px dashed var(--border);padding:26px;text-align:center;color:var(--muted);font-size:13px;line-height:1.65;margin-bottom:16px}
+.ghl-drop strong{display:block;color:var(--text);font-size:14px;margin-bottom:6px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ff{display:flex;flex-direction:column;gap:4px;margin-bottom:14px}
+.ff label{font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.ff input,.ff select,.ff textarea{padding:11px 0;border:none;border-bottom:1.5px solid var(--border);font-family:var(--sans);font-size:14.5px;color:var(--text);background:transparent;outline:none;width:100%;transition:border-color .2s;-webkit-appearance:none}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-bottom-color:var(--red)}
+.ff input::placeholder,.ff textarea::placeholder{color:#ccc}
+.ff select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23999'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;cursor:pointer}
+.ff textarea{resize:none;min-height:70px}
+.f-submit{width:100%;background:var(--red);color:#fff;border:none;padding:15px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;margin-top:10px;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:10px}
+.f-submit:hover{background:var(--red-d)}
+.f-submit::after{content:"→";font-size:14px}
+.f-fine{font-size:11.5px;color:#bbb;text-align:center;margin-top:13px;line-height:1.6}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:52px}
+@media(max-width:768px){.testi-grid{grid-template-columns:1fr}}
+.tcard{background:#fff;padding:38px 34px}
+.tquote{font-family:var(--serif);font-size:18px;font-style:italic;font-weight:400;line-height:1.75;color:var(--text);margin-bottom:28px;position:relative;padding-top:16px}
+.tquote::before{content:"\201C";position:absolute;top:-8px;left:-4px;font-family:var(--serif);font-size:56px;color:var(--red);line-height:1;font-style:normal}
+.tmeta{display:flex;align-items:center;gap:12px}
+.timg{width:46px;height:46px;border-radius:50%;object-fit:cover;flex-shrink:0;background:var(--sand)}
+.tname{font-size:14px;font-weight:600}
+.tloc{font-size:12px;color:var(--muted)}
+.ttag{margin-left:auto;background:var(--sand);font-size:10px;letter-spacing:1.5px;font-weight:700;text-transform:uppercase;color:var(--red);padding:4px 9px;white-space:nowrap}
+
+/* PROCESS */
+.proc-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:68px;align-items:end}
+@media(max-width:768px){.proc-head{grid-template-columns:1fr;gap:24px}}
+.proc-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+@media(max-width:640px){.proc-steps{grid-template-columns:1fr}}
+.ps-n{font-family:var(--serif);font-size:48px;font-weight:400;color:var(--red);line-height:1;margin-bottom:18px;display:block}
+.ps h3{font-size:18px;font-weight:600;margin-bottom:10px}
+.ps p{font-size:14px;color:var(--muted);line-height:1.8}
+
+/* TREVOR */
+.trevor-grid{display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+@media(max-width:768px){.trevor-grid{grid-template-columns:1fr}}
+.tv-img{position:relative;min-height:500px;background:var(--sand)}
+.tv-img img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.tv-ph{width:100%;min-height:500px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--muted);font-size:15px;font-family:var(--serif);text-align:center;padding:40px;background:var(--warm)}
+.tv-ph span{font-size:52px}
+.tv-body{background:var(--dark2);padding:80px 68px;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:768px){.tv-body{padding:56px 24px}}
+.tv-body .display{color:#fff;margin-bottom:8px}
+.tv-role{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:26px}
+.tv-body p{font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,.5);margin-bottom:14px}
+.tv-div{width:38px;height:1.5px;background:var(--red);margin:28px 0}
+.tv-facts{display:flex;gap:30px;flex-wrap:wrap}
+.tvf strong{display:block;font-family:var(--serif);font-size:30px;font-weight:400;color:#fff}
+.tvf em{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.35);font-style:normal}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:5fr 7fr;gap:90px}
+@media(max-width:768px){.faq-grid{grid-template-columns:1fr;gap:44px}}
+.faq-l h2{font-family:var(--serif);font-size:clamp(32px,4vw,46px);font-weight:400;line-height:1.15;margin-bottom:16px}
+.faq-l p{font-size:15px;color:var(--muted);line-height:1.8}
+.faq-r{}
+.fi{border-top:1px solid rgba(0,0,0,.09)}
+.fi:last-child{border-bottom:1px solid rgba(0,0,0,.09)}
+.fq{padding:20px 0;cursor:pointer;font-size:15.5px;font-weight:500;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:16px;transition:color .2s;line-height:1.4}
+.fq:hover{color:var(--red)}
+.farr{font-size:20px;color:var(--red);flex-shrink:0;transition:transform .3s;line-height:1}
+.fa{font-size:14px;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s}
+.fi.open .fa{max-height:160px;padding-bottom:20px}
+.fi.open .farr{transform:rotate(45deg)}
+
+/* FINAL CTA */
+.fcta{position:relative;overflow:hidden}
+.fcta img{width:100%;height:500px;object-fit:cover;display:block;filter:brightness(.32)}
+.fcta-body{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px}
+.fcta-body h2{font-family:var(--serif);font-size:clamp(36px,5.5vw,68px);font-weight:400;color:#fff;line-height:1.07;letter-spacing:-.3px;margin-bottom:18px;max-width:820px}
+.fcta-body h2 em{font-style:italic}
+.fcta-body p{font-size:17px;font-weight:300;color:rgba(255,255,255,.65);margin-bottom:34px}
+.btn-wht{background:#fff;color:var(--red);padding:15px 38px;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;display:inline-block;border:2px solid #fff;transition:background .2s}
+.btn-wht:hover{background:rgba(255,255,255,.9)}
+
+/* FOOTER */
+footer{background:var(--dark);padding:48px 80px}
+.foot-in{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.foot-logo{height:28px}
+.foot-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap}
+.foot-links a{font-size:12.5px;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:rgba(255,255,255,.8)}
+.foot-copy{width:100%;padding-top:24px;border-top:1px solid rgba(255,255,255,.06);font-size:11.5px;color:rgba(255,255,255,.28);text-align:center}
+@media(max-width:640px){footer{padding:36px 24px}}
+
+/* MOBILE STICKY */
+.mob-stick{display:none}
+@media(max-width:640px){
+  .mob-stick{display:block;position:fixed;bottom:0;left:0;right:0;background:var(--red);padding:14px 20px;z-index:300;text-align:center}
+  .mob-stick a{color:#fff;font-weight:600;font-size:14.5px;text-decoration:none;letter-spacing:.3px}
+}
+
+/* REVEAL — only hide when JS has loaded (progressive enhancement) */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.on{opacity:1;transform:translateY(0)}
+.js .rv2{opacity:0;transform:translateY(26px);transition:opacity .7s ease .12s,transform .7s ease .12s}
+.js .rv2.on{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#">
+    <svg class="logo-svg" viewBox="0 0 170 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,33 11,11 22,33" fill="#E21836"/>
+      <polygon points="11,33 19,19 27,33" fill="#E21836" opacity=".6"/>
+      <text x="33" y="28" font-family="'Inter',Arial,sans-serif" font-size="17" font-weight="700" fill="white" letter-spacing="3">SIMONDS</text>
+    </svg>
+  </a>
+  <div class="nav-r">
+    <a class="nav-tel" href="tel:1300746663">1300 746 663</a>
+    <a class="nav-btn" href="#assessment">Free Assessment</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img" id="hImg" loading="eager" fetchpriority="high"
+    src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=85&w=2200&auto=format&fit=crop&sat=-20"
+    alt="Luxury home exterior at dusk"/>
+  <div class="hero-grad"></div>
+  <div class="hero-body">
+    <p class="pill"><span class="pill-dot"></span>Free Design Assessment · Melbourne Metro</p>
+    <h1 class="hero-h">Your block has<br>more <em>potential</em><br>than you know.</h1>
+    <p class="hero-p">A complimentary 30-minute session with our Design &amp; Development team reveals exactly what's possible — whether you're considering a Knockdown Rebuild, Dual Occupancy, or simply want to explore.</p>
+    <div class="hero-acts">
+      <a class="btn-red" href="#assessment">Claim Your Free Assessment</a>
+      <a class="btn-wire" href="#projects">See Our Work</a>
+    </div>
+  </div>
+  <div class="hero-scroll-line"><span>Scroll</span></div>
+</section>
+
+<!-- STATS -->
+<div class="stats rv">
+  <div class="stat-c"><strong>75<sup style="font-size:.5em">+</sup></strong><span>Years Building Victoria</span></div>
+  <div class="stat-c"><strong>50K<sup style="font-size:.5em">+</sup></strong><span>Homes Delivered</span></div>
+  <div class="stat-c"><strong>100<sup style="font-size:.5em">+</sup></strong><span>Display Homes Open</span></div>
+  <div class="stat-c"><strong>★ 4.7</strong><span>Customer Satisfaction</span></div>
+</div>
+
+<!-- INTRO -->
+<section class="sec rv">
+  <div class="inner">
+    <div class="intro-grid">
+      <div class="intro-txt">
+        <p class="eyebrow">Knockdown Rebuild &amp; Dual Occupancy</p>
+        <h2 class="display" style="margin-bottom:22px">Extraordinary homes<br>start with an<br><em>honest conversation.</em></h2>
+        <p>Most Melbourne homeowners are sitting on land worth far more than they realise. Whether your home is dated, your block is underused, or you're wondering if there's a smarter path forward — a free assessment is where it starts.</p>
+        <p>No sales pitch. No pressure. A direct conversation with someone who has guided hundreds of families through exactly this decision.</p>
+        <a class="link-arr" href="#assessment">Book Your Free Assessment</a>
+      </div>
+      <div class="intro-vis rv2">
+        <img
+          src="https://images.unsplash.com/photo-1613977257363-707ba9348227?q=85&w=1400&auto=format&fit=crop"
+          alt="Modern Simonds home exterior"/>
+        <div class="tag-box">
+          <strong>Free</strong>
+          30-min design &amp;<br>feasibility session
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="sec sand" id="projects">
+  <div class="inner">
+    <div class="proj-head rv">
+      <div>
+        <p class="eyebrow">Our Work</p>
+        <h2 class="display">Transformations<br>across Melbourne.</h2>
+      </div>
+      <p>Every project starts with a block and a question. Here's what happened when families chose to ask it.</p>
+    </div>
+    <div class="pg rv">
+      <div class="pc big">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=85&w=1200&auto=format&fit=crop" alt="KDR Project"/>
+        <div class="pc-scrim"></div>
+        <div class="pc-body">
+          <span class="type-tag">Knockdown Rebuild</span>
+          <h3>Castlemaine 44</h3>
+          <p class="loc">Bankside, Melbourne</p>
+          <div class="pc-stats">
+            <span>4 bed · 3 bath<br>Double garage</span>
+            <span>6 month<br>build time</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=85&w=900&auto=format&fit=crop" alt="Dual Occ Project"/>
+        <div class="pc-scrim"></div>
+        <div class="pc-body">
+          <span class="type-tag">Dual Occupancy</span>
+          <h3>Bandler 44</h3>
+          <p class="loc">Eastern Suburbs, VIC</p>
+          <div class="pc-stats"><span>2 dwellings<br>Single block</span></div>
+        </div>
+      </div>
+      <div class="pc">
+        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=85&w=900&auto=format&fit=crop" alt="KDR Project"/>
+        <div class="pc-scrim"></div>
+        <div class="pc-body">
+          <span class="type-tag">Knockdown Rebuild</span>
+          <h3>Pentland 45</h3>
+          <p class="loc">Outer Melbourne, VIC</p>
+          <div class="pc-stats"><span>5 bed · 3 bath<br>Acreage block</span></div>
+        </div>
+      </div>
+      <div class="pc">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=85&w=900&auto=format&fit=crop" alt="Modern home"/>
+        <div class="pc-scrim"></div>
+        <div class="pc-body">
+          <span class="type-tag">Knockdown Rebuild</span>
+          <h3>Berwick 38</h3>
+          <p class="loc">Seaford Heights, VIC</p>
+          <div class="pc-stats"><span>Modern coastal<br>design</span></div>
+        </div>
+      </div>
+      <div class="pc">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=85&w=900&auto=format&fit=crop" alt="Luxury home"/>
+        <div class="pc-scrim"></div>
+        <div class="pc-body">
+          <span class="type-tag">Dual Occupancy</span>
+          <h3>Hepburn 25</h3>
+          <p class="loc">Nar Nar Goon, VIC</p>
+          <div class="pc-stats"><span>Smart dual<br>living design</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="sec rv">
+  <div class="inner">
+    <div style="text-align:center;margin-bottom:56px">
+      <p class="eyebrow center">Transformation</p>
+      <h2 class="display">See the difference<br>a rebuild makes.</h2>
+      <p class="body-lg" style="max-width:520px;margin:14px auto 0">Drag the slider to compare the before and after of a Simonds Knockdown Rebuild on a typical Melbourne block.</p>
+    </div>
+    <div class="ba-wrap" id="baSlider">
+      <div class="ba-after">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=85&w=2000&auto=format&fit=crop" alt="After: New home"/>
+      </div>
+      <div class="ba-before" id="baBefore">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=85&w=2000&auto=format&fit=crop" alt="Before: Old home" style="filter:grayscale(.6) brightness(.7)"/>
+      </div>
+      <span class="ba-lbl b">Before</span>
+      <span class="ba-lbl a">After</span>
+      <div class="ba-handle" id="baHandle"><span class="ba-arrow">◀ ▶</span></div>
+    </div>
+    <div class="ba-caps">
+      <div class="ba-cap"><div class="ba-dot" style="background:#888"></div><div><h4>The Original Block</h4><p>Dated home on a great Melbourne block</p></div></div>
+      <div class="ba-cap"><div class="ba-dot" style="background:var(--red)"></div><div><h4>The Simonds Rebuild</h4><p>Modern 4-bed home — same block, completely transformed</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER + FORM -->
+<section class="sec dark rv" id="assessment">
+  <div class="inner">
+    <div class="offer-grid">
+      <div class="offer-txt">
+        <p class="eyebrow w">Your Free Assessment</p>
+        <h2 class="display" style="color:#fff;margin-bottom:18px">Everything covered<br>in <em>30 minutes.</em></h2>
+        <p class="body-lg" style="color:rgba(255,255,255,.45);margin-bottom:40px">No jargon, no pressure. One focused session with Trevor that answers your biggest questions about your block's potential.</p>
+        <ul class="offer-list">
+          <li class="oi"><span class="oi-n">01</span><div><h4>Block Feasibility Review</h4><p>Your site dimensions, zoning, and overlays assessed before you spend a cent.</p></div></li>
+          <li class="oi"><span class="oi-n">02</span><div><h4>KDR vs Dual Occ Analysis</h4><p>Both paths explained for your specific block. Real options, not generic advice.</p></div></li>
+          <li class="oi"><span class="oi-n">03</span><div><h4>Design Possibilities</h4><p>See what could be built on your land with examples from comparable projects.</p></div></li>
+          <li class="oi"><span class="oi-n">04</span><div><h4>Honest Next Steps</h4><p>Whether you're ready to move or just exploring — we'll tell you what makes sense.</p></div></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-card">
+          <h3>Book Your Free Assessment</h3>
+          <p class="fsub">We'll be in touch within one business day.</p>
+          <!-- GHL EMBED: Replace .ghl-drop + #nf with your GHL embed snippet -->
+          <div class="ghl-drop">
+            <strong>⚡ GHL Form Embed</strong>
+            GHL → Sites → Forms → your form → Integrate → paste here
+          </div>
+          <div id="nf">
+            <div class="fr">
+              <div class="ff"><label>First Name</label><input type="text" placeholder="Sarah" required/></div>
+              <div class="ff"><label>Last Name</label><input type="text" placeholder="Johnson" required/></div>
+            </div>
+            <div class="ff"><label>Email Address</label><input type="email" placeholder="you@example.com" required/></div>
+            <div class="ff"><label>Phone</label><input type="tel" placeholder="04XX XXX XXX" required/></div>
+            <div class="ff"><label>Suburb / Area</label><input type="text" placeholder="e.g. Ringwood, VIC" required/></div>
+            <div class="ff">
+              <label>I'm Interested In</label>
+              <select required>
+                <option value="" disabled selected>Select an option</option>
+                <option>Knockdown Rebuild (KDR)</option>
+                <option>Dual Occupancy</option>
+                <option>Not Sure — Need Advice</option>
+              </select>
+            </div>
+            <div class="ff"><label>Anything Else? <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label><textarea placeholder="Tell us about your block or any questions..."></textarea></div>
+            <button class="f-submit" type="submit">Book My Free Assessment</button>
+          </div>
+          <p class="f-fine">No cost · No obligation · Reply within 1 business day</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec warm rv">
+  <div class="inner">
+    <p class="eyebrow">What Families Say</p>
+    <h2 class="display">Real results,<br>real families.</h2>
+    <div class="testi-grid">
+      <div class="tcard">
+        <p class="tquote">We had no idea our old block could hold a home this beautiful. The assessment changed everything — we knew within 30 minutes exactly what we were going to do.</p>
+        <div class="tmeta">
+          <div class="timg" style="background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:18px">👤</div>
+          <div><p class="tname">Connie &amp; Kyle</p><p class="tloc">Ringwood, VIC</p></div>
+          <span class="ttag">KDR</span>
+        </div>
+      </div>
+      <div class="tcard">
+        <p class="tquote">I was sceptical — I thought it would be a sales call. It wasn't. Trevor genuinely looked at our block and told us what was possible. We're so glad we booked.</p>
+        <div class="tmeta">
+          <div class="timg" style="background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:18px">👤</div>
+          <div><p class="tname">Aleks &amp; Tarra</p><p class="tloc">Croydon, VIC</p></div>
+          <span class="ttag">Dual Occ</span>
+        </div>
+      </div>
+      <div class="tcard">
+        <p class="tquote">Best decision we made was booking first. We found out our block could fit two homes — something we never even considered. Three years later we couldn't be happier.</p>
+        <div class="tmeta">
+          <div class="timg" style="background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:18px">👤</div>
+          <div><p class="tname">Jhony &amp; Evelyn</p><p class="tloc">Dandenong, VIC</p></div>
+          <span class="ttag">Dual Occ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec rv">
+  <div class="inner">
+    <div class="proc-head">
+      <h2 class="display">Three steps to find out what your block can do.</h2>
+      <p class="body-lg">From your first enquiry to your free assessment — the whole process takes less than a week.</p>
+    </div>
+    <div class="proc-steps">
+      <div class="ps"><span class="ps-n">01</span><h3>Submit your details</h3><p>Fill in the form below — your name, suburb, and what you're exploring. Under 2 minutes, zero commitment.</p></div>
+      <div class="ps"><span class="ps-n">02</span><h3>We confirm within 24 hours</h3><p>Our Design &amp; Development team reaches out to lock in a time — phone, video, or in person, your choice.</p></div>
+      <div class="ps"><span class="ps-n">03</span><h3>Your free 30-min assessment</h3><p>A genuine conversation about your block's potential — full review, design options, honest next steps. No cost, no pressure.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET TREVOR -->
+<section class="rv">
+  <div class="trevor-grid">
+    <div class="tv-img">
+      <!-- Replace with Trevor's headshot when available -->
+      <div class="tv-ph">
+        <span>📷</span>
+        <strong>Trevor Mitchell</strong>
+        <small>Add headshot here when available</small>
+      </div>
+    </div>
+    <div class="tv-body">
+      <p class="eyebrow w">Who You'll Speak With</p>
+      <h2 class="display" style="color:#fff;margin-bottom:8px">Trevor Mitchell</h2>
+      <p class="tv-role">Design &amp; Development Manager — Simonds Homes</p>
+      <p>Trevor leads our Design &amp; Development team with a singular focus: helping Melbourne homeowners unlock the real potential of their land. He specialises in Knockdown Rebuild and Dual Occupancy projects across metropolitan Melbourne.</p>
+      <p>Your assessment will be direct, practical, and honest. Trevor will tell you what's achievable on your specific block — and what isn't worth pursuing — so you can make a decision with real confidence.</p>
+      <div class="tv-div"></div>
+      <div class="tv-facts">
+        <div class="tvf"><strong>KDR</strong><em>Specialist</em></div>
+        <div class="tvf"><strong>Dual Occ</strong><em>Expert</em></div>
+        <div class="tvf"><strong>VIC Metro</strong><em>Focus</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sand rv">
+  <div class="inner">
+    <div class="faq-grid">
+      <div class="faq-l">
+        <p class="eyebrow">FAQs</p>
+        <h2>Questions before you book?</h2>
+        <p>If yours isn't here, include it in the form and we'll answer it directly.</p>
+      </div>
+      <div class="faq-r">
+        <div class="fi"><div class="fq">Is the assessment really completely free?<span class="farr">+</span></div><div class="fa">Yes — no charge, no obligation. It's a genuine conversation about your options, nothing more.</div></div>
+        <div class="fi"><div class="fq">How long does it take?<span class="farr">+</span></div><div class="fa">About 30 minutes. We keep it focused — no filler, just what's relevant to your block and situation.</div></div>
+        <div class="fi"><div class="fq">What do I need to prepare?<span class="farr">+</span></div><div class="fa">Nothing. Just the approximate suburb or address of your property. We'll handle the rest.</div></div>
+        <div class="fi"><div class="fq">What areas do you cover?<span class="farr">+</span></div><div class="fa">Primarily metropolitan Melbourne and surrounding areas. If you're unsure, submit the form and we'll confirm.</div></div>
+        <div class="fi"><div class="fq">I'm not ready to build yet — can I still book?<span class="farr">+</span></div><div class="fa">Absolutely. Most people book when they're still in the early thinking phase. That's exactly when the assessment is most useful.</div></div>
+        <div class="fi"><div class="fq">What happens after the assessment?<span class="farr">+</span></div><div class="fa">If you'd like to take the next step we'll outline what that looks like. If you need more time — no problem, no follow-up pressure.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="fcta rv">
+  <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=85&w=2200&auto=format&fit=crop" alt="Luxury home exterior"/>
+  <div class="fcta-body">
+    <p class="eyebrow w center">Limited Spots Available</p>
+    <h2>Start with a conversation.<br>End with <em>clarity.</em></h2>
+    <p>Book your free 30-minute design assessment today — no cost, no obligation.</p>
+    <a class="btn-wht" href="#assessment">Book My Free Assessment</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-in">
+    <svg class="foot-logo" viewBox="0 0 170 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,33 11,11 22,33" fill="#E21836"/>
+      <polygon points="11,33 19,19 27,33" fill="#E21836" opacity=".6"/>
+      <text x="33" y="28" font-family="'Inter',Arial,sans-serif" font-size="17" font-weight="700" fill="rgba(255,255,255,.55)" letter-spacing="3">SIMONDS</text>
+    </svg>
+    <ul class="foot-links">
+      <li><a href="#">Home Designs</a></li>
+      <li><a href="#">Display Homes</a></li>
+      <li><a href="#">Knockdown Rebuild</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms of Use</a></li>
+    </ul>
+    <p class="foot-copy">© 2026 Simonds Homes Pty Ltd · Melbourne, Victoria, Australia · 1300 746 663</p>
+  </div>
+</footer>
+
+<div class="mob-stick"><a href="#assessment">Book Free Assessment →</a></div>
+
+<script>
+// Mark JS loaded — enables scroll-reveal hiding (progressive enhancement)
+document.documentElement.classList.add('js');
+
+// Nav on scroll
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+
+// Hero image subtle pan
+setTimeout(()=>document.getElementById('hImg').classList.add('pan'),100);
+
+// Scroll reveal
+const rvEls=document.querySelectorAll('.rv,.rv2');
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}});
+},{threshold:0.08});
+rvEls.forEach(el=>io.observe(el));
+// Failsafe: reveal everything after 1.5s in case observer doesn't fire
+setTimeout(()=>rvEls.forEach(el=>el.classList.add('on')),1500);
+
+// Before/After slider
+const slider=document.getElementById('baSlider');
+const before=document.getElementById('baBefore');
+const handle=document.getElementById('baHandle');
+let drag=false;
+function pos(x){
+  const r=slider.getBoundingClientRect();
+  const p=Math.min(Math.max((x-r.left)/r.width*100,2),98);
+  before.style.clipPath=`inset(0 ${100-p}% 0 0)`;
+  handle.style.left=p+'%';
+}
+slider.addEventListener('mousedown',e=>{drag=true;pos(e.clientX)});
+addEventListener('mousemove',e=>{if(drag)pos(e.clientX)});
+addEventListener('mouseup',()=>drag=false);
+slider.addEventListener('touchstart',e=>{drag=true;pos(e.touches[0].clientX)});
+addEventListener('touchmove',e=>{if(drag)pos(e.touches[0].clientX)});
+addEventListener('touchend',()=>drag=false);
+
+// FAQ accordion
+document.querySelectorAll('.fq').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.fi').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
