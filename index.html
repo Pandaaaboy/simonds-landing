@@ -159,6 +159,8 @@ nav.scrolled .nav-tel{color:var(--muted)}
 .f-card{background:#fff;padding:44px 40px}
 .f-card h3{font-family:var(--serif);font-size:26px;font-weight:500;margin-bottom:5px}
 .f-card .fsub{font-size:13.5px;color:var(--muted);margin-bottom:26px}
+.ghl-drop{border:1.5px dashed var(--border);padding:26px;text-align:center;color:var(--muted);font-size:13px;line-height:1.65;margin-bottom:16px}
+.ghl-drop strong{display:block;color:var(--text);font-size:14px;margin-bottom:6px}
 .fr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .ff{display:flex;flex-direction:column;gap:4px;margin-bottom:14px}
 .ff label{font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
@@ -261,16 +263,14 @@ footer{background:var(--dark);padding:48px 80px}
 /* =============================================
    MOBILE OPTIMISATIONS
    ============================================= */
-
-/* Tablet wide (≤900px): relax section horizontal padding */
+/* Tablet wide (<=900px): relax section horizontal padding */
 @media(max-width:900px){
   .sec{padding:90px 48px}
   .hero-body{padding:0 48px 68px}
   footer{padding:40px 48px}
   .tag-box{bottom:0;left:0}
 }
-
-/* Mid-tablet (≤768px): continue tightening */
+/* Mid-tablet (<=768px): continue tightening */
 @media(max-width:768px){
   .hero-body{padding:0 36px 60px}
   .fcta img{height:400px}
@@ -278,63 +278,38 @@ footer{background:var(--dark);padding:48px 80px}
   .tv-body{padding:56px 32px}
   .sec{padding:80px 36px}
 }
-
-/* Mobile (≤640px): supplements existing rules */
+/* Mobile (<=640px): supplements existing rules */
 @media(max-width:640px){
-  /* Hide desktop nav CTA — mob-stick handles it */
   .nav-btn{display:none}
-
-  /* Pad body so mob-stick doesn't cover last content */
   body{padding-bottom:56px}
-
-  /* Stats: reduce oversized numbers in 2-col grid */
   .stat-c strong{font-size:34px}
   .stat-c{padding:24px 8px}
   .stat-c span{letter-spacing:1.2px}
-
-  /* Intro: shorten image, reposition tag-box safely inside bounds */
   .intro-vis img{height:260px}
   .tag-box{position:absolute;bottom:0;left:0;padding:14px 18px}
   .tag-box strong{font-size:26px;margin-bottom:0}
-
-  /* Projects: explicit card height in 1-col */
   .proj-head{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:32px}
   .proj-head p{max-width:100%}
   .pc{min-height:240px}
   .pc img{min-height:240px}
-
-  /* Form card: reduce padding for mobile viewport */
   .f-card{padding:28px 20px}
-
-  /* GHL iframe: explicit min-height so it doesn't collapse */
   #inline-MjCdphCb0c5LNm5CiaYN{min-height:700px}
-
-  /* Testimonials */
   .tcard{padding:28px 20px}
   .tquote{font-size:16px;line-height:1.7}
-
-  /* Process */
   .ps-n{font-size:40px;margin-bottom:10px}
   .proc-steps{gap:32px}
-
-  /* Trevor */
   .tv-ph{min-height:260px}
   .tv-body{padding:44px 20px}
   .tv-facts{gap:18px}
   .tvf strong{font-size:26px}
-
-  /* Final CTA */
   .fcta img{height:320px}
   .fcta-body h2{font-size:clamp(28px,9vw,46px)}
   .fcta-body p{font-size:15px;margin-bottom:24px}
   .fcta-body{padding:28px 24px}
-
-  /* Footer: center everything */
   .foot-in{flex-direction:column;align-items:center;text-align:center}
   .foot-links{justify-content:center}
 }
-
-/* Very small screens (≤380px) */
+/* Very small screens (<=380px) */
 @media(max-width:380px){
   .stat-c strong{font-size:28px}
   .stat-c span{font-size:9px;letter-spacing:.8px}
@@ -349,10 +324,9 @@ footer{background:var(--dark);padding:48px 80px}
 <!-- NAV -->
 <nav id="nav">
   <a href="#">
-    <svg class="logo-svg" viewBox="0 0 170 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="logo-svg" viewBox="0 0 30 38" fill="none" xmlns="http://www.w3.org/2000/svg">
       <polygon points="0,33 11,11 22,33" fill="#E21836"/>
       <polygon points="11,33 19,19 27,33" fill="#E21836" opacity=".6"/>
-      <text x="33" y="28" font-family="'Inter',Arial,sans-serif" font-size="17" font-weight="700" fill="white" letter-spacing="3">SIMONDS</text>
     </svg>
   </a>
   <div class="nav-r">
@@ -401,7 +375,7 @@ footer{background:var(--dark);padding:48px 80px}
       <div class="intro-vis rv2">
         <img
           src="https://images.unsplash.com/photo-1613977257363-707ba9348227?q=85&w=1400&auto=format&fit=crop"
-          alt="Modern Simonds home exterior"/>
+          alt="Modern home exterior"/>
         <div class="tag-box">
           <strong>Free</strong>
           30-min design &amp;<br>feasibility session
@@ -485,7 +459,7 @@ footer{background:var(--dark);padding:48px 80px}
     <div style="text-align:center;margin-bottom:56px">
       <p class="eyebrow center">Transformation</p>
       <h2 class="display">See the difference<br>a rebuild makes.</h2>
-      <p class="body-lg" style="max-width:520px;margin:14px auto 0">Drag the slider to compare the before and after of a Simonds Knockdown Rebuild on a typical Melbourne block.</p>
+      <p class="body-lg" style="max-width:520px;margin:14px auto 0">Drag the slider to compare the before and after of a Knockdown Rebuild on a typical Melbourne block.</p>
     </div>
     <div class="ba-wrap" id="baSlider">
       <div class="ba-after">
@@ -496,11 +470,11 @@ footer{background:var(--dark);padding:48px 80px}
       </div>
       <span class="ba-lbl b">Before</span>
       <span class="ba-lbl a">After</span>
-      <div class="ba-handle" id="baHandle"><span class="ba-arrow">◀ ▶</span></div>
+      <div class="ba-handle" id="baHandle"><span class="ba-arrow">&#9664; &#9654;</span></div>
     </div>
     <div class="ba-caps">
       <div class="ba-cap"><div class="ba-dot" style="background:#888"></div><div><h4>The Original Block</h4><p>Dated home on a great Melbourne block</p></div></div>
-      <div class="ba-cap"><div class="ba-dot" style="background:var(--red)"></div><div><h4>The Simonds Rebuild</h4><p>Modern 4-bed home — same block, completely transformed</p></div></div>
+      <div class="ba-cap"><div class="ba-dot" style="background:var(--red)"></div><div><h4>The Rebuild</h4><p>Modern 4-bed home — same block, completely transformed</p></div></div>
     </div>
   </div>
 </section>
@@ -526,8 +500,7 @@ footer{background:var(--dark);padding:48px 80px}
           <p class="fsub">We'll be in touch within one business day.</p>
           <!-- GHL Form Embed: Simonds Free Design Assessment -->
           <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
-          <iframe
-            src="https://api.leadconnectorhq.com/widget/form/MjCdphCb0c5LNm5CiaYN"
+          <iframe src="https://api.leadconnectorhq.com/widget/form/MjCdphCb0c5LNm5CiaYN"
             style="width:100%;height:100%;border:none;border-radius:3px"
             id="inline-MjCdphCb0c5LNm5CiaYN"
             data-layout="{'id':'INLINE'}"
@@ -559,7 +532,7 @@ footer{background:var(--dark);padding:48px 80px}
       <div class="tcard">
         <p class="tquote">We had no idea our old block could hold a home this beautiful. The assessment changed everything — we knew within 30 minutes exactly what we were going to do.</p>
         <div class="tmeta">
-          <div class="timg" style="background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:18px">👤</div>
+          <div class="timg" style="background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:18px">&#128100;</div>
           <div><p class="tname">Connie &amp; Kyle</p><p class="tloc">Ringwood, VIC</p></div>
           <span class="ttag">KDR</span>
         </div>
@@ -567,7 +540,7 @@ footer{background:var(--dark);padding:48px 80px}
       <div class="tcard">
         <p class="tquote">I was sceptical — I thought it would be a sales call. It wasn't. Trevor genuinely looked at our block and told us what was possible. We're so glad we booked.</p>
         <div class="tmeta">
-          <div class="timg" style="background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:18px">👤</div>
+          <div class="timg" style="background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:18px">&#128100;</div>
           <div><p class="tname">Aleks &amp; Tarra</p><p class="tloc">Croydon, VIC</p></div>
           <span class="ttag">Dual Occ</span>
         </div>
@@ -575,7 +548,7 @@ footer{background:var(--dark);padding:48px 80px}
       <div class="tcard">
         <p class="tquote">Best decision we made was booking first. We found out our block could fit two homes — something we never even considered. Three years later we couldn't be happier.</p>
         <div class="tmeta">
-          <div class="timg" style="background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:18px">👤</div>
+          <div class="timg" style="background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:18px">&#128100;</div>
           <div><p class="tname">Jhony &amp; Evelyn</p><p class="tloc">Dandenong, VIC</p></div>
           <span class="ttag">Dual Occ</span>
         </div>
@@ -605,7 +578,7 @@ footer{background:var(--dark);padding:48px 80px}
     <div class="tv-img">
       <!-- Replace with Trevor's headshot when available -->
       <div class="tv-ph">
-        <span>📷</span>
+        <span>&#128247;</span>
         <strong>Trevor Mitchell</strong>
         <small>Add headshot here when available</small>
       </div>
@@ -638,8 +611,8 @@ footer{background:var(--dark);padding:48px 80px}
       <div class="faq-r">
         <div class="fi"><div class="fq">Is the assessment really completely free?<span class="farr">+</span></div><div class="fa">Yes — no charge, no obligation. It's a genuine conversation about your options, nothing more.</div></div>
         <div class="fi"><div class="fq">How long does it take?<span class="farr">+</span></div><div class="fa">About 30 minutes. We keep it focused — no filler, just what's relevant to your block and situation.</div></div>
-        <div class="fi"><div class="fq">What do I need to prepare?<span class="farr">+</span></div><div class="fa">Nothing. Just the approximate suburb or address of your property. We'll handle the rest.</div></div>
-        <div class="fi"><div class="fq">What areas do you cover?<span class="farr">+</span></div><div class="fa">Primarily metropolitan Melbourne and surrounding areas. If you're unsure, submit the form and we'll confirm.</div></div>
+        <div class="fi"><div class="fq">What do I need to prepare?<span class="farr">+</span></div><div class="fa">Nothing. Just the suburb or address of your property. We'll handle the rest.</div></div>
+        <div class="fi"><div class="fq">What areas do you cover?<span class="farr">+</span></div><div class="fa">All across Victoria.</div></div>
         <div class="fi"><div class="fq">I'm not ready to build yet — can I still book?<span class="farr">+</span></div><div class="fa">Absolutely. Most people book when they're still in the early thinking phase. That's exactly when the assessment is most useful.</div></div>
         <div class="fi"><div class="fq">What happens after the assessment?<span class="farr">+</span></div><div class="fa">If you'd like to take the next step we'll outline what that looks like. If you need more time — no problem, no follow-up pressure.</div></div>
       </div>
@@ -661,10 +634,9 @@ footer{background:var(--dark);padding:48px 80px}
 <!-- FOOTER -->
 <footer>
   <div class="foot-in">
-    <svg class="foot-logo" viewBox="0 0 170 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="foot-logo" viewBox="0 0 30 38" fill="none" xmlns="http://www.w3.org/2000/svg">
       <polygon points="0,33 11,11 22,33" fill="#E21836"/>
       <polygon points="11,33 19,19 27,33" fill="#E21836" opacity=".6"/>
-      <text x="33" y="28" font-family="'Inter',Arial,sans-serif" font-size="17" font-weight="700" fill="rgba(255,255,255,.55)" letter-spacing="3">SIMONDS</text>
     </svg>
     <ul class="foot-links">
       <li><a href="#">Home Designs</a></li>
@@ -673,33 +645,23 @@ footer{background:var(--dark);padding:48px 80px}
       <li><a href="#">Privacy Policy</a></li>
       <li><a href="#">Terms of Use</a></li>
     </ul>
-    <p class="foot-copy">© 2026 Simonds Homes Pty Ltd · Melbourne, Victoria, Australia · 1300 746 663</p>
+    <p class="foot-copy">&copy; 2026 Simonds Homes Pty Ltd &middot; Melbourne, Victoria, Australia &middot; 1300 746 663</p>
   </div>
 </footer>
 
-<div class="mob-stick"><a href="#assessment">Book Free Assessment →</a></div>
+<div class="mob-stick"><a href="#assessment">Book Free Assessment &#8594;</a></div>
 
 <script>
-// Mark JS loaded — enables scroll-reveal hiding (progressive enhancement)
 document.documentElement.classList.add('js');
-
-// Nav on scroll
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
-
-// Hero image subtle pan
 setTimeout(()=>document.getElementById('hImg').classList.add('pan'),100);
-
-// Scroll reveal
 const rvEls=document.querySelectorAll('.rv,.rv2');
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}});
 },{threshold:0.08});
 rvEls.forEach(el=>io.observe(el));
-// Failsafe: reveal everything after 1.5s in case observer doesn't fire
 setTimeout(()=>rvEls.forEach(el=>el.classList.add('on')),1500);
-
-// Before/After slider
 const slider=document.getElementById('baSlider');
 const before=document.getElementById('baBefore');
 const handle=document.getElementById('baHandle');
@@ -716,8 +678,6 @@ addEventListener('mouseup',()=>drag=false);
 slider.addEventListener('touchstart',e=>{drag=true;pos(e.touches[0].clientX)});
 addEventListener('touchmove',e=>{if(drag)pos(e.touches[0].clientX)});
 addEventListener('touchend',()=>drag=false);
-
-// FAQ accordion
 document.querySelectorAll('.fq').forEach(q=>{
   q.addEventListener('click',()=>{
     const item=q.parentElement;
